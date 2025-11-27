@@ -35,6 +35,11 @@ https://www.tooplate.com/view/2139-neural-portfolio
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
         body::before {
             content: '';
@@ -94,6 +99,7 @@ https://www.tooplate.com/view/2139-neural-portfolio
             align-items: center;
             max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
         }
 
         /* Logo */
@@ -103,6 +109,12 @@ https://www.tooplate.com/view/2139-neural-portfolio
             gap: 15px;
             text-decoration: none;
             transition: all 0.3s ease;
+        }
+        
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         .logo-container:hover {
@@ -355,6 +367,7 @@ https://www.tooplate.com/view/2139-neural-portfolio
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
         .section-title {
@@ -369,16 +382,16 @@ https://www.tooplate.com/view/2139-neural-portfolio
             letter-spacing: 4px;
             text-transform: uppercase;
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 
-                         0 0 20px rgba(0, 255, 255, 0.6),
-                         0 0 30px rgba(0, 255, 255, 0.4);
+            0 0 20px rgba(0, 255, 255, 0.6),
+            0 0 30px rgba(0, 255, 255, 0.4);
             animation: titleGlow 2s ease-in-out infinite alternate;
         }
 
         @keyframes titleGlow {
             0% { opacity: 0.8; }
             100% { opacity: 1; text-shadow: 0 0 15px rgba(0, 255, 255, 1), 
-                                           0 0 30px rgba(0, 255, 255, 0.8),
-                                           0 0 45px rgba(0, 255, 255, 0.6); }
+            0 0 30px rgba(0, 255, 255, 0.8),
+            0 0 45px rgba(0, 255, 255, 0.6); }
         }
 
         .section-title::after {
@@ -505,7 +518,7 @@ https://www.tooplate.com/view/2139-neural-portfolio
 
         .about-stats {
             display: grid;
-            /* grid-template-columns: repeat(3, 1fr); */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -527,6 +540,12 @@ https://www.tooplate.com/view/2139-neural-portfolio
             transform: translateY(-5px);
             border-color: var(--primary);
             box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+        }
+        
+        .stat-card-center {
+            grid-column: 1 / -1;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         .stat-number {
@@ -553,13 +572,21 @@ https://www.tooplate.com/view/2139-neural-portfolio
 
         .stat-label ul {
             padding-left: 0;
-            margin: 0;
-            list-style-position: inside;
+            margin: 0 auto;
+            list-style: none;
+            text-align: center;
+            display: inline-block;
         }
 
         .stat-label li {
-            margin-bottom: 5px;
+            margin-bottom: 12px;
             padding-left: 0;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .stat-label li:last-child {
+            margin-bottom: 0;
         }
 
         /* Projects Grid */
@@ -674,6 +701,7 @@ https://www.tooplate.com/view/2139-neural-portfolio
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .form-group {
@@ -844,12 +872,57 @@ https://www.tooplate.com/view/2139-neural-portfolio
 
         /* Tablet Responsive */
         @media (max-width: 1024px) and (min-width: 769px) {
-            /* .projects-grid {
-                gap: 25px;
-            } */
+            nav {
+                padding: 15px 30px;
+            }
+            
+            nav.scrolled {
+                padding: 10px 30px;
+            }
             
             .glitch {
                 font-size: 4rem;
+                letter-spacing: 6px;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 80px 30px;
+            }
+            
+            .about-container {
+                gap: 40px;
+            }
+            
+            .profile-img-wrapper {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .about-content h3 {
+                font-size: 1.8rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Medium Tablet */
+        @media (max-width: 900px) and (min-width: 769px) {
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-container {
+                gap: 30px;
             }
         }
 
@@ -858,9 +931,19 @@ https://www.tooplate.com/view/2139-neural-portfolio
             nav {
                 padding: 15px 20px;
             }
+            
+            nav.scrolled {
+                padding: 10px 20px;
+            }
 
             .logo-text {
-                font-size: 1.2rem;
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+            
+            .logo-container img {
+                width: 40px !important;
+                height: auto;
             }
 
             .logo-svg {
@@ -1012,6 +1095,25 @@ https://www.tooplate.com/view/2139-neural-portfolio
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+            
+            .stat-card-center {
+                max-width: 100%;
+            }
+            
+            .stat-label ul {
+                padding-left: 0;
+                list-style: none;
+                text-align: center;
+            }
+            
+            .stat-label li {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            
+            .stat-label li:last-child {
+                margin-bottom: 0;
+            }
 
             .stat-number {
                 font-size: 2rem;
@@ -1042,5 +1144,216 @@ https://www.tooplate.com/view/2139-neural-portfolio
 
             .about-content h3 {
                 font-size: 1.5rem;
+            }
+            
+            .about-content p {
+                font-size: 1rem !important;
+            }
+        }
+        
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            nav {
+                padding: 12px 15px;
+            }
+            
+            nav.scrolled {
+                padding: 8px 15px;
+            }
+            
+            .logo-text {
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
+            }
+            
+            .logo-container {
+                gap: 10px;
+            }
+            
+            .logo-container img {
+                width: 35px !important;
+            }
+            
+            .glitch {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+            
+            section {
+                padding: 40px 15px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+                margin-bottom: 30px;
+            }
+            
+            .section-title::after {
+                width: 100px;
+                height: 3px;
+            }
+            
+            .about-container {
+                gap: 30px;
+            }
+            
+            .profile-img-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .profile-img {
+                font-size: 3rem;
+            }
+            
+            .about-content h3 {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+            
+            .about-content p {
+                font-size: 0.9rem !important;
+                line-height: 1.6;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stat-card-center {
+                max-width: 100%;
+            }
+            
+            .stat-card {
+                padding: 15px 10px;
+            }
+            
+            .stat-number {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+            
+            .stat-label {
+                font-size: 0.75rem;
+            }
+            
+            .stat-label li {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+                line-height: 1.6;
+            }
+            
+            .stat-label li:last-child {
+                margin-bottom: 0;
+            }
+            
+            .contact-form {
+                padding: 20px 15px;
+            }
+            
+            .form-group {
+                margin-bottom: 20px;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .neural-btn {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 11px;
+            }
+            
+            footer {
+                padding: 40px 15px 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-section h3 {
+                font-size: 0.9rem;
+            }
+            
+            .social-links {
+                gap: 15px;
+            }
+            
+            .social-links a {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .scroll-btn {
+                bottom: 20px;
+            }
+            
+            .scroll-btn-inner {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .scroll-btn svg {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .hero {
+                margin-top: 60px;
+                padding: 0 15px;
+            }
+        }
+        
+        /* Extra Small Mobile */
+        @media (max-width: 360px) {
+            .glitch {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+            
+            .subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .logo-text {
+                font-size: 0.75rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .profile-img-wrapper {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .profile-img {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Landscape Mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 80px 20px 40px;
+            }
+            
+            .glitch {
+                font-size: 2.5rem;
             }
         }
